@@ -1,51 +1,48 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList } from 'react-native';
+import AccordionValue from './components/AccordionValue';
 
 
 const AccordionSecond = ({ }) => {
-
-    const [biswopaban, setBiswopaban] = useState(false);
     const [show, setShow] = useState(false);
-    const [pratyush, setPratyush] = useState(false);
-    const [ashis, setAshis] = useState(false);
-    const [lipsa, setLipsa] = useState(false);
-    const [ipsita, setIpsita] = useState(false);
-
+    const [show1, setShow1] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
+    const [show4, setShow4] = useState(false);
+    const [visibleIndex, setVisibleIndex] = useState(-1);
     const Name = [
         {
             id: '1',
             name: 'Biswopaban Nayak',
             title: ' We have a strong foundation of software-related knowledge to work in a better way',
             bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
-            onPress: () => setBiswopaban(!biswopaban),
         },
         {
             id: '2',
             name: 'Pratyush Kumar',
-            title: ' We have a strong foundation of software-related knowledge to work in a better way',
-            bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
-            onPress: () => setPratyush(!pratyush),
+            title: 'We have a strong foundation of software-related knowledge to work in a better way',
+
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
         },
         {
             id: '3',
             name: 'K.P Lipsa',
             title: ' We have a strong foundation of software-related knowledge to work in a better way',
-            bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
-            onPress: () => setLipsa(!lipsa),
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
         },
         {
             id: '4',
             name: 'Ipsita Rout ',
-            title: ' We have a strong foundation of software-related knowledge to work in a better way',
-            bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
-            onPress: () => setIpsita(!ipsita),
+            title: 'We have a strong foundation of software-related knowledge to work in a better way',
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
+
         },
         {
             id: '5',
             name: 'Ashis Kumar ',
-            title: ' We have a strong foundation of software-related knowledge to work in a better way',
-            bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
-            onPress: () => setAshis(!ashis),
+            title: 'We have a strong foundation of software-related knowledge to work in a better way',
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
+
         },
 
     ]
@@ -75,7 +72,7 @@ const AccordionSecond = ({ }) => {
 
             <FlatList
                 data={Name}
-                renderItem={({ item }) => (
+                renderItem={({ item, index }) => (
                     <View
                         style={{
                             backgroundColor: 'blue',
@@ -86,7 +83,6 @@ const AccordionSecond = ({ }) => {
 
                         }}
                     >
-
                         <View
                             style={{
                                 flexDirection: 'row',
@@ -103,7 +99,13 @@ const AccordionSecond = ({ }) => {
                                     {item?.name}
                                 </Text>
                             </View>
-                            <TouchableOpacity onPress={item?.onPress}>
+                            <TouchableOpacity onPress={() => {
+                                setShow(!show),
+                                    setShow1(!show1),
+                                    setShow2(!show2),
+                                    setShow3(!show3),
+                                    setShow4(!show4)
+                            }}>
                                 {
                                     show ?
                                         <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5477/5477237.png' }}
@@ -116,42 +118,12 @@ const AccordionSecond = ({ }) => {
                                 }
                             </TouchableOpacity>
                         </View>
-                        {biswopaban
-                            &&
-                            <View
-                                style={{
-                                    marginTop: 15,
-                                    backgroundColor: '#fff',
-                                    padding: 10,
-                                    borderRadius: 10,
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        color: '#000',
-                                        textAlign: 'center',
-                                        fontSize: 16,
-                                        fontWeight: 'bold',
-                                        paddingVertical: 10
-                                    }}
-                                >
-                                    {item?.title}
-                                </Text>
-                                <Text
-                                    style={{
-                                        color: '#000',
-                                        textAlign: 'justify',
-                                        fontSize: 15
-                                    }}
-                                >
-                                    {item?.bio}
-                                </Text>
 
-                            </View>
-                        }
                     </View>
                 )}
+
             />
+
         </View>
     );
 };

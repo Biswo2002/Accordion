@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import AnimationPart1 from './src/AnimationPart1'
-import AnimationPart2 from './src/AnimationPart2'
 import AccordionSecond from './src/AccordionSecond'
+import Accordion from './src/Accordion'
+import AccordionValue from './src/components/AccordionValue'
 
 const App = () => {
   return (
+    // <Accordion />
     <AccordionSecond />
-    // <AnimationPart1 />
-    // <AnimationPart2/>
+    // <AccordionValue/>
   )
 }
 
