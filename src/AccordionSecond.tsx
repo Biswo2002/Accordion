@@ -16,32 +16,38 @@ const AccordionSecond = ({ }) => {
             name: 'Biswopaban Nayak',
             title: ' We have a strong foundation of software-related knowledge to work in a better way',
             bio: ' A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
+            onPress: () => setShow(!show),
         },
         {
             id: '2',
             name: 'Pratyush Kumar',
             title: 'We have a strong foundation of software-related knowledge to work in a better way',
 
-            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
+            onPress: () => setShow1(!show1),
+
         },
         {
             id: '3',
             name: 'K.P Lipsa',
             title: ' We have a strong foundation of software-related knowledge to work in a better way',
-            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
+            onPress: () => setShow2(!show2),
+
         },
         {
             id: '4',
             name: 'Ipsita Rout ',
             title: 'We have a strong foundation of software-related knowledge to work in a better way',
-            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
-
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
+            onPress: () => setShow3(!show3),
         },
         {
             id: '5',
             name: 'Ashis Kumar ',
             title: 'We have a strong foundation of software-related knowledge to work in a better way',
-            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.'
+            bio: 'A software engineer is a skilled person who can apply the theories and rules of software engineering to the design, development, restoration, maintenance, testing, and evaluation of various computer software.',
+            onPress: () => setShow4(!show4),
 
         },
 
@@ -100,14 +106,10 @@ const AccordionSecond = ({ }) => {
                                 </Text>
                             </View>
                             <TouchableOpacity onPress={() => {
-                                setShow(!show),
-                                    setShow1(!show1),
-                                    setShow2(!show2),
-                                    setShow3(!show3),
-                                    setShow4(!show4)
+                                item?.onPress
                             }}>
                                 {
-                                    show ?
+                                    show && show1 && show2 && show3 && show4 ?
                                         <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/512/5477/5477237.png' }}
                                             style={{ width: 40, height: 40, }}
                                         />
@@ -118,7 +120,6 @@ const AccordionSecond = ({ }) => {
                                 }
                             </TouchableOpacity>
                         </View>
-
                     </View>
                 )}
 
